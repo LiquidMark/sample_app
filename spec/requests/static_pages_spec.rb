@@ -41,14 +41,16 @@ describe "Static pages" do
   end
 
   describe "Contact page" do
-    it "should have the h1 'Contact Us'" do
+    it "should have the h1 'Contact Liquid Autos'" do
       visit '/static_pages/contact'
-      page.should have_selector('h1', :text => 'Contact Us')
+      page.should have_selector('h1', :text => 'Contact Liquid Autos')
     end
-    it "should have the title 'Contact Us'" do
+    it "title should contain 'Contact Liquid Autos'" do
       visit '/static_pages/contact'
       page.should have_selector('title',
-                    :text => "#{base_title} | Contact Us")
+                    :text => "Contact Liquid Autos")
+      page.should have_selector('body',
+                    :text => "Liquid Autos Contact Page.")
     end
   end
 
