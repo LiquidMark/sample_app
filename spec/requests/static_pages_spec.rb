@@ -2,15 +2,15 @@ require 'spec_helper'
 
 describe "Static pages" do
 
-  let(:base_title) { "Ruby on Rails Tutorial Sample App" }
+  let(:base_title) { "Liquid Autos" }
 
   describe "Home page" do
-    it "should have the h1 'Sample App'" do
-      visit '/static_pages/home'
-      page.should have_selector('h1', :text => 'Sample App')
+    it "should have the h1 'Liquid Autos'" do
+      visit root_path
+      page.should have_selector('h1', :text => 'Liquid Autos')
     end
     it "should have the title 'Home'" do
-      visit '/static_pages/home'
+      visit root_path
       page.should have_selector('title',
                         :text => "#{base_title} | Home")
     end
@@ -18,11 +18,11 @@ describe "Static pages" do
 
   describe "Help page" do
     it "should have the h1 'Help'" do
-      visit '/static_pages/help'
+      visit help_path
       page.should have_selector('h1', :text => 'Help')
     end
     it "should have the title 'Help'" do
-      visit '/static_pages/help'
+      visit help_path
       page.should have_selector('title',
                         :text => "#{base_title} | Help")
     end
@@ -30,11 +30,11 @@ describe "Static pages" do
 
   describe "About page" do
     it "should have the h1 'About'" do
-      visit '/static_pages/about'
+      visit about_path
       page.should have_selector('h1', :text => 'About Us')
     end
     it "should have the title 'About Us'" do
-      visit '/static_pages/about'
+      visit about_path
       page.should have_selector('title',
                     :text => "#{base_title} | About Us")
     end
@@ -42,11 +42,11 @@ describe "Static pages" do
 
   describe "Contact page" do
     it "should have the h1 'Contact Liquid Autos'" do
-      visit '/static_pages/contact'
+      visit contact_path
       page.should have_selector('h1', :text => 'Contact Liquid Autos')
     end
     it "title should contain 'Contact Liquid Autos'" do
-      visit '/static_pages/contact'
+      visit contact_path
       page.should have_selector('title',
                     :text => "Contact Liquid Autos")
       page.should have_selector('body',
