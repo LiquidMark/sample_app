@@ -99,8 +99,16 @@ describe User do
 
   describe "when password doesn't match confirmation" do
     before do 
-	    @user.password_confirmation = "password"
+	    @user.password = "password"
 	    @user.password_confirmation = "mismatch"
+    end
+    it { should_not be_valid }
+  end
+
+  describe "when password_confirmation is nil" do
+    before do 
+      @user.password = "password"
+      @user.password_confirmation = nil
     end
     it { should_not be_valid }
   end
