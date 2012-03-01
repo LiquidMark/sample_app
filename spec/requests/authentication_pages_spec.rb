@@ -39,6 +39,7 @@ describe "Authentication" do
       describe "followed by signout" do
         before { click_link "Sign out" }
         it { should have_link('Sign in') }
+        it { should have_selector('div.flash.notice', text: 'Logged out') }        
       end
 
       describe "followed by visiting home page" do
