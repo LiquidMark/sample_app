@@ -24,8 +24,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    logger.debug "In UsersController.update; params.inspect follows:"
-    logger.info params.inspect
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       # Handle a successful update. Re-sign-in the user so his
@@ -33,7 +31,7 @@ class UsersController < ApplicationController
       sign_in @user
       redirect_to @user, notice: "Profile updated"
     else
-      render 'edit' # errors in flash from update_attributes
+      render 'edit' # errors are in flash from update_attributes
     end
   end
 
