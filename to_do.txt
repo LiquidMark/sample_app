@@ -1,0 +1,11 @@
+------------------------------------------------------------------------
+========================== DONE / SOLVED ==============================
+Problem: From:
+	http://localhost:3000/users/3/edit
+whether I'm not logged in or not, clicking Update button results in:
+
+	Template is missing
+
+	Missing template users/update, application/update with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :coffee]}. Searched in: * "/home/mmolloy/rails_projects/sample_app/app/views"
+Solution: By default, Rails expects a template with the same name as the action being executed. In this case, 'edit' was mapped to 'update'. The action method has now been changed to explicitly render or redirect on each path, so the default is not elicited.
+------------------------------------------------------------------------

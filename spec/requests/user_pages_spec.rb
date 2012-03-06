@@ -53,4 +53,44 @@ describe "User Pages" do
     end
   end
 
+  describe "edit" do
+    let(:user) { FactoryGirl.create(:user) }
+    before { visit edit_user_path(user) }
+
+    describe "page" do
+      it { should have_selector('h1',    text: "Edit user") }
+      it { should have_selector('title', text: "Edit user") }
+      it { should have_link('change', href: 'http://gravatar.com/emails') }
+    end
+
+    describe "with invalid information" do
+      let(:error) { 'Password is too short' }
+      before do
+        fill_in "Password",     with: '12345'
+        fill_in "Confirmation", with: '12345'
+        click_button "Update"
+      end
+      it { should have_content(error) }
+    end
+
+    describe "with valid information" do
+      let(:user)      { FactoryGirl.create(:user) }
+      let(:new_name)  { "New Name" }
+      let(:new_email) { "new@example.com" }
+      before do
+        fill_in "Name",         with: new_name
+        fill_in "Email",        with: new_email
+        fill_in "Password",     with: user.password
+        fill_in "Confirmation", with: user.password
+        click_button "Update"
+      end
+      it { should have_selector('title', text: new_name) }
+      it { should have_selector('div.flash.notice') }
+      it { should have_link('Sign out', :href => signout_path) }
+      specify { user.reload.name.should  == new_name }
+      specify { user.reload.email.should == new_email }
+    end
+
+  end
+
 end
