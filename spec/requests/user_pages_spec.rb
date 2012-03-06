@@ -55,7 +55,10 @@ describe "User Pages" do
 
   describe "edit" do
     let(:user) { FactoryGirl.create(:user) }
-    before { visit edit_user_path(user) }
+    before do 
+      sign_in user
+      visit edit_user_path(user) 
+    end
 
     describe "page" do
       it { should have_selector('h1',    text: "Edit user") }
@@ -85,7 +88,7 @@ describe "User Pages" do
         click_button "Update"
       end
       it { should have_selector('title', text: new_name) }
-      it { should have_selector('div.flash.notice') }
+      it { should have_selector('div.flash.success') }
       it { should have_link('Sign out', :href => signout_path) }
       specify { user.reload.name.should  == new_name }
       specify { user.reload.email.should == new_email }
