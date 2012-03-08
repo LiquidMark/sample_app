@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 3.4  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Owner ">
+	<META NAME="CREATED" CONTENT="20120221;15173500">
+	<META NAME="CHANGEDBY" CONTENT="Owner ">
+	<META NAME="CHANGED" CONTENT="20120228;18231100">
+	<META NAME="CHANGEDBY" CONTENT="Owner ">
+	<META NAME="CHANGEDBY" CONTENT="Owner ">
+	<STYLE TYPE="text/css">
+	<!--
+		PRE.cjk { font-family: "WenQuanYi Micro Hei", monospace }
+		P.heading-2-western { font-family: "Liberation Serif", serif; font-size: 18pt; font-weight: bold }
+		P.heading-2-cjk { font-family: "WenQuanYi Micro Hei"; font-size: 18pt; font-weight: bold }
+		P.heading-2-ctl { font-family: "Lohit Hindi"; font-size: 18pt; font-weight: bold }
+		H1.heading-2-western { font-family: "Liberation Serif", serif; font-size: 18pt }
+		H1.heading-2-cjk { font-family: "WenQuanYi Micro Hei"; font-size: 18pt }
+		H1.heading-2-ctl { font-family: "Lohit Hindi"; font-size: 18pt }
+		H1.heading-3-western { font-family: "DejaVu Sans Condensed", sans-serif; font-size: 14pt }
+		H1.heading-3-cjk { font-family: "WenQuanYi Micro Hei"; font-size: 14pt }
+		H1.heading-3-ctl { font-family: "Lohit Hindi"; font-size: 14pt }
+		CODE.cjk { font-family: "WenQuanYi Micro Hei", monospace }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P ALIGN=CENTER STYLE="margin-top: 0.17in; page-break-after: avoid"><FONT FACE="Albany, sans-serif"><FONT SIZE=4>Notes
+for Ruby on Rails Development</FONT></FONT></P>
+<H1>Tutorial</H1>
+<P>I am working through the tutorial at
+<A HREF="http://ruby.railstutorial.org/chapters">http://ruby.railstutorial.org/chapters</A>.</P>
+<P CLASS="heading-2-western">bundle &amp; Postgress</P>
+<P>As recommended by the tutorial, I am not attempting to install
+Postgress locally at this time. This means that I have to run bundle
+as follows:</P>
+<PRE CLASS="western" STYLE="margin-left: 0.79in; margin-bottom: 0.2in; border: none; padding: 0in; font-style: normal; font-weight: normal; text-align: left; widows: 2; orphans: 2"><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2>bundle --without production</FONT></FONT></FONT></PRE><P STYLE="margin-left: 0.79in">
+[But then I tried</P>
+<P STYLE="margin-left: 1.58in"><FONT FACE="Courier 10 Pitch">sudo
+apt-get install postgresql</FONT></P>
+<P STYLE="margin-left: 0.79in"><FONT FACE="DejaVu Sans Condensed, sans-serif">which
+is supposed to provide a usable configuration. Then, I can't tell
+what ruby is using, so I'm deleteing the ~/rails_projects/sample_app
+directory and starting over...</FONT></P>
+<P STYLE="margin-left: 0.79in"><FONT FACE="DejaVu Sans Condensed, sans-serif">But,
+I get the same failure, so I'm doing as the tutorial suggests, using
+SQLLite for development/testing.</FONT></P>
+<P STYLE="margin-left: 0.79in"><FONT FACE="DejaVu Sans Condensed, sans-serif">]</FONT></P>
+<P CLASS="heading-2-western">Git</P>
+<PRE CLASS="western" STYLE="font-style: normal; font-weight: normal"><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2><FONT COLOR="#000080"><FONT FACE="inherit"><B>$</B></FONT></FONT> git init</FONT></FONT></FONT>
+<FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2><FONT COLOR="#000080"><FONT FACE="inherit"><B>$</B></FONT></FONT> git add .</FONT></FONT></FONT>
+<FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2><FONT COLOR="#000080"><FONT FACE="inherit"><B>$</B></FONT></FONT> git commit -m <FONT COLOR="#ba2121"><FONT FACE="inherit">&quot;Initial commit&quot;</FONT></FONT></FONT></FONT></FONT></PRE><P>
+<BR><BR>
+</P>
+<P CLASS="heading-2-western">GitHub</P>
+<P><FONT FACE="DejaVu Sans Condensed, sans-serif">Created a
+repository at </FONT><A HREF="https://github.com/LiquidMark/sample_app">https://github.com/LiquidMark/sample_app</A>.</P>
+<P>Pushing the project up to the git repository:</P>
+<PRE CLASS="western" STYLE="margin-left: 0.79in"><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">git remote add origin <A HREF="mailto:git@github.com">git@github.com</A>:LiquidMark/sample_app.git</SPAN></SPAN></FONT></FONT></FONT>
+<FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2>git push origin master</FONT></FONT></FONT></PRE><P>
+<FONT FACE="DejaVu Sans Condensed, sans-serif">Note that it asks for
+a secret key – I used tdmstddt.</FONT></P>
+<P CLASS="heading-2-western"><FONT FACE="DejaVu Sans Condensed, sans-serif">Heroku</FONT></P>
+<P><FONT FACE="DejaVu Sans Condensed, sans-serif">Pushing to Heroku:</FONT></P>
+<PRE CLASS="western" STYLE="margin-left: 0.79in; font-style: normal; font-weight: normal"><FONT COLOR="#070707"><FONT FACE="DejaVu Sans Condensed, sans-serif"><FONT SIZE=2>heroku create --stack cedar</FONT></FONT></FONT>
+<FONT COLOR="#070707"><FONT FACE="DejaVu Sans Condensed, sans-serif"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal"># Above tells me: <A HREF="http://empty-galaxy-4912.herokuapp.com/">http://empty-galaxy-4912.herokuapp.com/</A>  | git@heroku.com:empty-galaxy-4912.git</SPAN></SPAN></FONT></FONT></FONT>
+
+<FONT COLOR="#070707"><FONT FACE="DejaVu Sans Condensed, sans-serif"><FONT SIZE=2>git push heroku master</FONT></FONT></FONT>
+<FONT COLOR="#070707"><FONT FACE="DejaVu Sans Condensed, sans-serif"><FONT SIZE=2># above tells me http://empty-galaxy-4912.herokuapp.com deployed to Heroku</FONT></FONT></FONT></PRE><P STYLE="margin-left: 0.79in">
+<BR><BR>
+</P>
+<P CLASS="heading-2-western"><FONT FACE="DejaVu Sans Condensed, sans-serif">To
+Push &amp; Deploy</FONT></P>
+<PRE CLASS="western" STYLE="margin-left: 0.79in; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 0.25in; text-align: left; widows: 2; orphans: 2"><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2><SPAN STYLE="background: #eeeeee">git push # put into GitHub archive</SPAN></FONT></FONT></FONT>
+<FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2><SPAN STYLE="background: #eeeeee">git push heroku # deploy onto heroku</SPAN></FONT></FONT></FONT></PRE><P CLASS="heading-2-western" STYLE="margin-left: 0.79in">
+<FONT FACE="DejaVu Sans Condensed, sans-serif">Creating a separate
+branch on Git:</FONT></P>
+<PRE CLASS="western" STYLE="margin-left: 0.79in; margin-bottom: 0.2in; font-style: normal; font-weight: normal"><FONT COLOR="#070707"><FONT FACE="DejaVu Sans Condensed, sans-serif"><FONT SIZE=2>git checkout -b static-pages      # creates branch “static-pages”</FONT></FONT></FONT></PRE><P>
+<BR><BR>
+</P>
+<P CLASS="heading-2-western"><FONT FACE="DejaVu Sans Condensed, sans-serif">Creating
+a Controller with Rails' “generate” script</FONT></P>
+<P><FONT FACE="DejaVu Sans Condensed, sans-serif">The following
+creates a controller “StaticPages”, with two pages 'home' and
+'help':</FONT></P>
+<P><FONT COLOR="#070707"><FONT FACE="DejaVu Sans Condensed, sans-serif"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">rails
+generate controller StaticPages home </SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">help</SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#070707">
+–</FONT><FONT COLOR="#070707"><FONT FACE="DejaVu Sans Condensed, sans-serif"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">no-test-framework
+# we'll create the tests by hand...</SPAN></SPAN></FONT></FONT></FONT></P>
+<P CLASS="heading-2-western"><FONT FACE="DejaVu Sans Condensed, sans-serif">Generating
+an Integration Test (Request Spec) </FONT>
+</P>
+<P STYLE="font-style: normal; font-weight: normal"><FONT COLOR="#070707"><FONT FACE="DejaVu Sans Condensed, sans-serif"><FONT SIZE=2>rails
+generate integration_test static_pages</FONT></FONT></FONT></P>
+<P CLASS="heading-2-western"><FONT FACE="DejaVu Sans Condensed, sans-serif">Running
+an Rspec Test</FONT></P>
+<P><FONT FACE="DejaVu Sans Condensed, sans-serif">Using “bundle”
+makes sure exec runs with the environment as set up in our Gemfile.</FONT></P>
+<P><FONT COLOR="#070707"><FONT FACE="DejaVu Sans Condensed, sans-serif"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">bundle
+</SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">exec
+</SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#070707"><FONT FACE="DejaVu Sans Condensed, sans-serif"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">rspec
+spec/requests/static_pages_spec.rb</SPAN></SPAN></FONT></FONT></FONT></P>
+<P CLASS="heading-2-western"><FONT FACE="DejaVu Sans Condensed, sans-serif">The
+local web page</FONT></P>
+<P><FONT FACE="DejaVu Sans Condensed, sans-serif">When testing
+locally, a static page 'about' will be at:</FONT></P>
+<P><A HREF="http://localhost:3000/static_pages/about"><FONT FACE="DejaVu Sans Condensed, sans-serif">http://localhost:3000/static_pages/about</FONT></A></P>
+<P CLASS="heading-2-western"><FONT FACE="DejaVu Sans Condensed, sans-serif">Git
+Merge Branch &amp; Push &amp; Publish</FONT></P>
+<PRE CLASS="western"><FONT COLOR="#070707">            <FONT FACE="DejaVu Sans Condensed, sans-serif"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">git add . # we're still on static-pages branch; add the new files.</SPAN></SPAN></FONT></FONT></FONT>
+<FONT COLOR="#070707">      <FONT FACE="monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">git commit -m </SPAN></SPAN></FONT></FONT><FONT COLOR="#ba2121"><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">&quot;Finish static pages&quot; # commit those changes to the static-pages branch</SPAN></SPAN></FONT></FONT></FONT></FONT>
+<FONT COLOR="#ba2121">            <FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">git checkout master        # switch to working on the master branch</SPAN></SPAN></FONT></FONT></FONT>
+<FONT COLOR="#ba2121">            <FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">git merge static-pages   # merge the changes from the static-pages branch into the master</SPAN></SPAN></FONT></FONT></FONT>
+<FONT COLOR="#ba2121">            <FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">git push # put merged master branch back onto GitHub</SPAN></SPAN></FONT></FONT></FONT>
+<FONT COLOR="#ba2121">            <FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">git push heroku # deploy merged master branch onto public web site</SPAN></SPAN></FONT></FONT></FONT></PRE><P CLASS="heading-2-western">
+<FONT FACE="DejaVu Sans Condensed, sans-serif">RVM and Bundler
+Integration</FONT></P>
+<P><FONT FACE="DejaVu Sans Condensed, sans-serif">The following
+mysterious sequence makes it so “bundle exec” doesn't have to be
+prefixed to ruby-related commands to ensure they run in the right
+environment (right set of gems):</FONT></P>
+<P><FONT COLOR="#070707"><FONT FACE="DejaVu Sans Condensed, sans-serif"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">rvm
+get head </SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#666666"><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">&amp;&amp;</SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#070707">
+</FONT><FONT COLOR="#070707"><FONT FACE="DejaVu Sans Condensed, sans-serif"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">rvm
+reload<BR>chmod +x </SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#19177c"><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">$rvm_path</SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#070707"><FONT FACE="DejaVu Sans Condensed, sans-serif"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">/hooks/after_cd_bundler<BR></SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">cd</SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#070707">
+</FONT><FONT COLOR="#070707"><FONT FACE="DejaVu Sans Condensed, sans-serif"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">~/rails_projects/sample_app<BR>bundle
+--binstubs</SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#666666"><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">=</SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#070707"><FONT FACE="DejaVu Sans Condensed, sans-serif"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">./bundler_stubs</SPAN></SPAN></FONT></FONT></FONT></P>
+<P><FONT COLOR="#070707">“</FONT><FONT COLOR="#111111"><FONT FACE="Georgia, serif"><FONT SIZE=3><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">If
+you add another executable (such as&nbsp;</SPAN></SPAN></FONT></FONT></FONT><CODE CLASS="western"><FONT COLOR="#006400"><FONT FACE="Courier, monospace"><FONT SIZE=3><SPAN STYLE="font-style: normal"><B>guard</B></SPAN></FONT></FONT></FONT></CODE><FONT COLOR="#111111">&nbsp;</FONT><FONT COLOR="#111111"><FONT FACE="Georgia, serif"><FONT SIZE=3><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">in</SPAN></SPAN></FONT></FONT></FONT><A HREF="http://ruby.railstutorial.org/chapters/static-pages?version=3.2#sec:guard"><FONT COLOR="#002f72"><FONT FACE="inherit"><FONT SIZE=3><SPAN STYLE="font-style: normal"><U><SPAN STYLE="font-weight: normal">Section&nbsp;3.6.2</SPAN></U></SPAN></FONT></FONT></FONT></A><FONT COLOR="#111111"><FONT FACE="Georgia, serif"><FONT SIZE=3><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">),
+you should re-run the&nbsp;</SPAN></SPAN></FONT></FONT></FONT><CODE CLASS="western"><FONT COLOR="#006400"><FONT FACE="Courier, monospace"><FONT SIZE=3><SPAN STYLE="font-style: normal"><B>bundle</B></SPAN></FONT></FONT></FONT></CODE><FONT COLOR="#111111">&nbsp;</FONT><FONT COLOR="#111111"><FONT FACE="Georgia, serif"><FONT SIZE=3><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">command:”</SPAN></SPAN></FONT></FONT></FONT></P>
+<PRE CLASS="western" STYLE="margin-bottom: 0.2in; border: none; padding: 0in; line-height: 0.25in; text-align: left; widows: 2; orphans: 2"><FONT COLOR="#000080"><SPAN STYLE="background: #eeeeee">             <FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>$</B></SPAN></FONT></FONT> <FONT FACE="monospace"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">bundle --binstubs</SPAN></SPAN></FONT><FONT COLOR="#666666"><FONT FACE="inherit"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">=</SPAN></SPAN></FONT></FONT><FONT FACE="monospace"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">./bundler_stubs</SPAN></SPAN></FONT></SPAN></FONT></PRE><H1 CLASS="heading-2-western">
+<FONT FACE="DejaVu Sans Condensed, sans-serif">Generating a Model</FONT></H1>
+<P STYLE="font-style: normal; font-weight: normal"><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2>rails
+generate model User name:string email:string</FONT></FONT></FONT></P>
+<P>Use the following command to update annotation in model files:</P>
+<P><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">bundle
+</SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">exec
+</SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">annotate
+--position before</SPAN></SPAN></FONT></FONT></FONT></P>
+<H1 CLASS="heading-3-western" STYLE="margin-left: 0.79in">Making
+Specific Attributes Accessible 
+</H1>
+<P STYLE="margin-left: 0.79in">Putting “attr_accessible” directly
+into the model file makes only the mentioned attributes accessible.
+By default, they all are accessible; this limits accessibility to
+only those mentioned:</P>
+<PRE CLASS="western" STYLE="margin-left: 0.79in; border: none; padding: 0in; line-height: 0.25in; text-align: left; widows: 2; orphans: 2"><FONT COLOR="#008000"><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B><SPAN STYLE="background: #eeeeee">class</SPAN></B></SPAN></FONT></FONT></FONT><FONT COLOR="#070707"><SPAN STYLE="background: #eeeeee"> </SPAN></FONT><FONT COLOR="#0000ff"><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B><SPAN STYLE="background: #eeeeee">User</SPAN></B></SPAN></FONT></FONT></FONT><FONT COLOR="#070707"><SPAN STYLE="background: #eeeeee"> </SPAN></FONT><FONT COLOR="#666666"><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal"><SPAN STYLE="background: #eeeeee">&lt;</SPAN></SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#070707"><SPAN STYLE="background: #eeeeee"> </SPAN></FONT><FONT COLOR="#19177c"><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal"><SPAN STYLE="background: #eeeeee">ActiveRecord::Base</SPAN></SPAN></SPAN></FONT></FONT></FONT>
+<FONT COLOR="#070707"><SPAN STYLE="background: #eeeeee">  <FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">attr_accessible</SPAN></SPAN></FONT></FONT> <FONT COLOR="#19177c"><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">:name</SPAN></SPAN></FONT></FONT></FONT><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">,</SPAN></SPAN></FONT></FONT> <FONT COLOR="#19177c"><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">:email</SPAN></SPAN></FONT></FONT></FONT></SPAN></FONT>
+<FONT COLOR="#008000"><FONT FACE="inherit"><FONT SIZE=2><B><SPAN STYLE="background: #eeeeee">end</SPAN></B></FONT></FONT></FONT></PRE><P STYLE="margin-left: 0.79in">
+<BR><BR>
+</P>
+<P>To play without making any changes to database:</P>
+<P STYLE="font-style: normal; font-weight: normal"><FONT COLOR="#006400"><FONT FACE="inherit"><FONT SIZE=2>rails
+console --sandbox</FONT></FONT></FONT></P>
+<P>Create development database:</P>
+<P STYLE="font-style: normal"><FONT COLOR="#006400"><FONT FACE="Courier, monospace"><FONT SIZE=3><B>rake
+db:migrate</B></FONT></FONT></FONT></P>
+<P>Create test database:</P>
+<P><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">bundle
+</SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">exec
+</SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">rake
+db:test:prepare</SPAN></SPAN></FONT></FONT></FONT></P>
+<P>“If your test suite is mysteriously failing, be sure to try
+running “rake <A HREF="db:test:prepare">db:test:prepare</A>” to
+reset it and see if that fixes the problem.</P>
+<H1 CLASS="heading-3-western" STYLE="margin-left: 0.79in">Adding
+structure to an existing model</H1>
+<PRE CLASS="western" STYLE="margin-left: 0.79in; margin-bottom: 0.2in; font-style: normal; font-weight: normal"><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2>rails generate migration add_index_to_users_email</FONT></FONT></FONT></PRE><H1 CLASS="heading-2-western">
+Using the Console</H1>
+<PRE CLASS="western" STYLE="font-style: normal; font-weight: normal"><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2>To see what went wrong when an ActiveRecord operation was done, e.g. “m = User.new(...)”, use</FONT></FONT></FONT>
+<FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2>m.errors </FONT></FONT></FONT>
+<FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2>and</FONT></FONT></FONT>
+<FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2>m.errors.full_messages</FONT></FONT></FONT></PRE><P STYLE="margin-left: 0.79in">
+<BR><BR>
+</P>
+<H1 CLASS="heading-2-western">Reseting the Database</H1>
+<PRE CLASS="western" STYLE="margin-left: 0.79in; margin-bottom: 0.2in"><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">bundle </SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#008000"><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">exec </SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">rake <A HREF="db:reset">db:reset</A></SPAN></SPAN></FONT></FONT></FONT></PRE><P STYLE="font-style: normal; font-weight: normal">
+<FONT COLOR="#111111"><FONT FACE="Georgia, serif"><FONT SIZE=3>After
+resetting the database, on some systems the test database needs to be
+re-prepared as well:</FONT></FONT></FONT></P>
+<PRE CLASS="western" STYLE="margin-left: 0.79in; margin-bottom: 0.2in; font-style: normal; font-weight: normal"><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2>bundle <FONT COLOR="#008000"><FONT FACE="inherit">exec </FONT></FONT>rake db:test:prepare</FONT></FONT></FONT></PRE><P>
+<BR><BR>
+</P>
+<P STYLE="font-style: normal; font-weight: normal"><FONT COLOR="#111111"><FONT FACE="Georgia, serif"><FONT SIZE=3>The
+above <B>IS</B> necessary on my system...</FONT></FONT></FONT></P>
+<H1 CLASS="heading-2-western">Migrating the Production Database on
+Heroku</H1>
+<PRE CLASS="western" STYLE="margin-bottom: 0.2in; font-style: normal; font-weight: normal"><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2>heroku run rake db:migrate</FONT></FONT></FONT></PRE><P>
+<BR><BR>
+</P>
+</BODY>
+</HTML>

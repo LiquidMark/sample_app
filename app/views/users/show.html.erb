@@ -10,6 +10,9 @@
     <td class="sidebar round">
       <strong>Name</strong> <%= @user.name %><br />
       <strong>URL</strong>  <%= link_to user_path(@user), @user %>
+      <% if @user.admin? %>
+        <h4>ADMINISTRATOR</h4>
+      <% end %>  
     </td>
   </tr>
 </table>
