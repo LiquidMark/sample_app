@@ -7,7 +7,8 @@
 	<META NAME="AUTHOR" CONTENT="Owner ">
 	<META NAME="CREATED" CONTENT="20120221;15173500">
 	<META NAME="CHANGEDBY" CONTENT="Owner ">
-	<META NAME="CHANGED" CONTENT="20120228;18231100">
+	<META NAME="CHANGED" CONTENT="20120308;13255300">
+	<META NAME="CHANGEDBY" CONTENT="Owner ">
 	<META NAME="CHANGEDBY" CONTENT="Owner ">
 	<META NAME="CHANGEDBY" CONTENT="Owner ">
 	<STYLE TYPE="text/css">
@@ -69,8 +70,9 @@ a secret key – I used tdmstddt.</FONT></P>
 
 <FONT COLOR="#070707"><FONT FACE="DejaVu Sans Condensed, sans-serif"><FONT SIZE=2>git push heroku master</FONT></FONT></FONT>
 <FONT COLOR="#070707"><FONT FACE="DejaVu Sans Condensed, sans-serif"><FONT SIZE=2># above tells me http://empty-galaxy-4912.herokuapp.com deployed to Heroku</FONT></FONT></FONT></PRE><P STYLE="margin-left: 0.79in">
-<BR><BR>
-</P>
+# After database changes:<BR><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">git
+push heroku<BR>heroku run rake <A HREF="db:migrate">db:migrate</A><BR>heroku
+run rake db:populate</SPAN></SPAN></FONT></FONT></FONT></P>
 <P CLASS="heading-2-western"><FONT FACE="DejaVu Sans Condensed, sans-serif">To
 Push &amp; Deploy</FONT></P>
 <PRE CLASS="western" STYLE="margin-left: 0.79in; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 0.25in; text-align: left; widows: 2; orphans: 2"><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2><SPAN STYLE="background: #eeeeee">git push # put into GitHub archive</SPAN></FONT></FONT></FONT>
