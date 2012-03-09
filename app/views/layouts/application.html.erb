@@ -17,10 +17,26 @@
       </section>
       <%= render 'layouts/footer' %>
       <% if Rails.env.development? %>
-        <br><hr><h4>params: </h4>
+        <h3>params: </h3>
         <%= debug params %>
-        <hr><h4> session: </h4>
+        <hr>
+        <h3> session: </h3>
         <%= debug session %>
+        <hr>
+        <h3> request: </h3>
+        <% %w[query_parameters 
+              flash 
+              fullpath 
+              original_url 
+              remote_ip
+              ip 
+              uuid
+              request_method
+              request_method_symbol
+              cookie_jar].each do |e| %>
+          <h4> request.<%= e %>: </h4>
+          <%= eval("debug request.#{e}") %>
+        <% end %>
       <% end %>
     </div>
   </body>

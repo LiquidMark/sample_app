@@ -28,12 +28,17 @@ describe "Authentication" do
 
       describe "when attempting to visit a protected page" do
         before do
+          # Attempting to visit the edit user page throws us onto the
+          # login page instead:
           visit edit_user_path(user)
+          # So we log in:
           fill_in "Email",    with: user.email
           fill_in "Password", with: user.password
           click_button "Sign in"
         end
         describe "after signing in" do
+          # and after clicking Sign in, we should end up on the
+          # edit user page, as requested prior to signin:
           it "should render the desired protected page" do
             page.should have_selector('title', text: 'Edit user')
           end
@@ -76,6 +81,11 @@ describe "Authentication" do
     before { visit signin_path }
     it { should have_selector('h1',    text: 'Sign in') }
     it { should have_selector('title', text: 'Sign in') }
+    # This is a good place to check that links which should appear
+    # after the user has logged in do NOT appear before that:
+    it { should_not have_link('Users') }
+    it { should_not have_link('Profile') }
+    it { should_not have_link('Settings') }
   end
 
   describe "signin" do

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:index, :edit, :update]
+  before_filter :not_signed_in_user, only: [:create, :new]
   before_filter :correct_user,   only: [:edit, :update]
   before_filter :admin_user,     only: :destroy
 
@@ -16,6 +17,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    #redirect_to(root_path) if signed_in_user 
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
@@ -54,6 +56,10 @@ class UsersController < ApplicationController
     def signed_in_user
       store_location # Why isn't in a more global place?
       redirect_to signin_path, notice: "Please sign in to access this page." unless signed_in?
+    end
+
+    def not_signed_in_user
+      redirect_to root_path, notice: "You are signed in, so there is no need to create a new account." unless !signed_in?
     end
 
     def correct_user
