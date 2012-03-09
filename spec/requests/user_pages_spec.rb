@@ -8,6 +8,18 @@ describe "User Pages" do
 
     let(:user) { FactoryGirl.create(:user) }
 
+    # I don't think the following test works. It was an exercise
+    # I haven't figured out yet...
+    describe "when admin attempts to delete himself" do
+      let(:admin) { FactoryGirl.create(:admin) }
+      before do
+        sign_in admin
+        visit users_path
+      end
+      # what to check?
+      it { should have_selector('h1', text: 'All users') }
+    end
+
     before do
       sign_in user
       visit users_path
