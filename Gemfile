@@ -38,6 +38,7 @@ group :test do
   gem 'database_cleaner', '0.7.0'
   gem 'guard-spork', '0.3.2'
   gem 'spork', '0.9.0'  
+  gem 'launchy', '2.0.5'
 end
 
 group :production do
