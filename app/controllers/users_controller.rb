@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])    
   end
 
   def new
@@ -57,11 +58,6 @@ class UsersController < ApplicationController
   end  
 
   private
-
-    def signed_in_user
-      store_location # Why isn't in a more global place?
-      redirect_to signin_path, notice: "Please sign in to access this page." unless signed_in?
-    end
 
     def not_signed_in_user
       redirect_to root_path, notice: "You are signed in, so there is no need to create a new account." unless !signed_in?

@@ -7,7 +7,8 @@
 	<META NAME="AUTHOR" CONTENT="Owner ">
 	<META NAME="CREATED" CONTENT="20120221;15173500">
 	<META NAME="CHANGEDBY" CONTENT="Owner ">
-	<META NAME="CHANGED" CONTENT="20120308;13255300">
+	<META NAME="CHANGED" CONTENT="20120313;9584700">
+	<META NAME="CHANGEDBY" CONTENT="Owner ">
 	<META NAME="CHANGEDBY" CONTENT="Owner ">
 	<META NAME="CHANGEDBY" CONTENT="Owner ">
 	<META NAME="CHANGEDBY" CONTENT="Owner ">
@@ -70,7 +71,7 @@ a secret key – I used tdmstddt.</FONT></P>
 
 <FONT COLOR="#070707"><FONT FACE="DejaVu Sans Condensed, sans-serif"><FONT SIZE=2>git push heroku master</FONT></FONT></FONT>
 <FONT COLOR="#070707"><FONT FACE="DejaVu Sans Condensed, sans-serif"><FONT SIZE=2># above tells me http://empty-galaxy-4912.herokuapp.com deployed to Heroku</FONT></FONT></FONT></PRE><P STYLE="margin-left: 0.79in">
-# After database changes:<BR><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">git
+# After database changes:<BR><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">git
 push heroku<BR>heroku run rake <A HREF="db:migrate">db:migrate</A><BR>heroku
 run rake db:populate</SPAN></SPAN></FONT></FONT></FONT></P>
 <P CLASS="heading-2-western"><FONT FACE="DejaVu Sans Condensed, sans-serif">To
@@ -192,5 +193,10 @@ Heroku</H1>
 <PRE CLASS="western" STYLE="margin-bottom: 0.2in; font-style: normal; font-weight: normal"><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2>heroku run rake db:migrate</FONT></FONT></FONT></PRE><P>
 <BR><BR>
 </P>
+<P>Writing to log 
+</P>
+<P>Use: logger.debug “message”</P>
+<P>Note: if nothing gets written to the log – particularly if I
+have removed the log! – restart rails server!</P>
 </BODY>
 </HTML>

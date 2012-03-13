@@ -2,8 +2,10 @@ module SessionsHelper
 
   def sign_in(user)
     return_to = session[:return_to]
+    return_to_action = session[:return_to_action]
     reset_session
     session[:return_to] = return_to
+    session[:return_to_action] = return_to_action
     cookies.permanent[:remember_token] = user.remember_token
     current_user = user
   end
@@ -30,13 +32,19 @@ module SessionsHelper
     user == current_user
   end
 
+  def signed_in_user
+    store_location 
+    redirect_to signin_path, notice: "Please sign in to access this page." unless signed_in?
+  end
+
   def redirect_back_or(default)
-    redirect_to(session[:return_to] || default)
+      redirect_to session[:return_to] || default
     clear_return_to
   end
 
   def store_location
-    session[:return_to] = request.fullpath
+    session[:return_to] = request.fullpath if ['show', 'edit'].include?action_name
+    #session[:return_to_action] = action_name
   end
 
   private
@@ -48,6 +56,7 @@ module SessionsHelper
 
     def clear_return_to
       session.delete(:return_to)
+      session.delete(:return_to_action)
     end
 
 end

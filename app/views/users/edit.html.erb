@@ -1,7 +1,9 @@
 <% provide :title, "Edit user" %> 
 
-<h1>Edit user</h1>
+<h1>Update your profile</h1>
+
 <%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
   <%= render 'fields', f: f %>
   <div class="actions">
     <%= f.submit "Update" %>
