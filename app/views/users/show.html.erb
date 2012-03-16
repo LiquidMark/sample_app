@@ -1,3 +1,30 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+        <% if @user.admin? %>
+          <h4>ADMINISTRATOR</h4>
+        <% end %>  
+      </h1>
+    </section>
+  </aside>
+  <div class="span8">
+    <%= render 'follow_form' if signed_in? %>
+    <% if @user.microposts.any? %>
+      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+      <%= will_paginate @microposts %>
+    <% end %>
+  </div>
+</div>
+
+<!-- OLD: -->
+<!--
 <% provide :title, @user.name %>
 <table class="profile">
   <tr>
@@ -16,12 +43,6 @@
     </td>
   </tr>
 </table>
-
-  <!--
-  <aside>
-    ...
-  </aside>
-  -->
   <div class="span8">
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
@@ -31,3 +52,4 @@
       <%= will_paginate @microposts %>
     <% end %>
   </div>
+  -->

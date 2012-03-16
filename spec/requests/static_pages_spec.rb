@@ -21,9 +21,21 @@ describe "Static pages:" do
 
       it "should render the user's feed:" do
         user.feed.each do |item|
-          page.should have_selector("li##{item.id}", text: item.content)
+          page.should have_selector("tr##{item.id}", text: item.content)
         end
       end
+
+      describe "follower/following counts:" do
+        let(:other_user) { FactoryGirl.create(:user) }
+        before do
+          other_user.follow!(user)
+          visit root_path
+        end
+
+        it { should have_link("0 following", href: following_user_path(user)) }
+        it { should have_link("1 follower",  href: followers_user_path(user)) }
+      end
+
     end
   end
 
@@ -56,7 +68,7 @@ describe "Static pages:" do
     page.should have_selector 'title', text: full_title('Contact')
     click_link "Home"
     page.should have_selector 'title', text: full_title('Home')
-    click_link "Sign Up Now!"
+    click_link "Sign up now!"
     page.should have_selector 'title', text: full_title('Sign up')
   end
 

@@ -55,11 +55,23 @@ describe "Authentication:" do
           before { put user_path(user) }
           specify { response.should redirect_to(signin_path) }
         end
+
+        describe "visiting the following page:" do
+          before { visit following_user_path(user) }
+          it { should have_selector('title', text: 'Sign in') }
+        end
+
+        describe "visiting the followers page:" do
+          before { visit followers_user_path(user) }
+          it { should have_selector('title', text: 'Sign in') }
+        end
+
       end
 
       describe "submitting to the create action:" do
         before { post microposts_path }
         specify { response.should redirect_to(signin_path) }
+
       end
 
       describe "submitting to the destroy action:" do
@@ -68,6 +80,19 @@ describe "Authentication:" do
           delete micropost_path(micropost)
         end
         specify { response.should redirect_to(signin_path) }
+
+      describe "in the Relationships controller:" do
+        describe "submitting to the create action" do
+          before { post relationships_path }
+          specify { response.should redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action:" do
+          before { delete relationship_path(1) }
+          specify { response.should redirect_to(signin_path) }          
+        end
+      end
+
       end
 
     end
@@ -110,7 +135,7 @@ describe "Authentication:" do
       it { should have_selector('div.flash.error', text: 'Invalid') }
       describe "after visiting another page:" do
 			  before { click_link "Home" }
-			  it { should_not have_selector('div.flash.error') }
+			  it { should_not have_selector('div.alert.alert-error') }
 			end
     end
 

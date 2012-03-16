@@ -21,3 +21,5 @@ doc/
 *~
 .project
 .DS_Store
+.~lock*
+.~lock.Ruby_on_Rails_Project_Notes.html#

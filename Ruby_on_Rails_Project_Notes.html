@@ -7,7 +7,9 @@
 	<META NAME="AUTHOR" CONTENT="Owner ">
 	<META NAME="CREATED" CONTENT="20120221;15173500">
 	<META NAME="CHANGEDBY" CONTENT="Owner ">
-	<META NAME="CHANGED" CONTENT="20120313;9584700">
+	<META NAME="CHANGED" CONTENT="20120316;16233600">
+	<META NAME="CHANGEDBY" CONTENT="Owner ">
+	<META NAME="CHANGEDBY" CONTENT="Owner ">
 	<META NAME="CHANGEDBY" CONTENT="Owner ">
 	<META NAME="CHANGEDBY" CONTENT="Owner ">
 	<META NAME="CHANGEDBY" CONTENT="Owner ">
@@ -33,7 +35,7 @@
 for Ruby on Rails Development</FONT></FONT></P>
 <H1>Tutorial</H1>
 <P>I am working through the tutorial at
-<A HREF="http://ruby.railstutorial.org/chapters">http://ruby.railstutorial.org/chapters</A>.</P>
+<A HREF="http://ruby.railstutorial.org/book/ruby-on-rails-tutorial?version=3.1">http://ruby.railstutorial.org/book/ruby-on-rails-tutorial?version=3.1</A></P>
 <P CLASS="heading-2-western">bundle &amp; Postgress</P>
 <P>As recommended by the tutorial, I am not attempting to install
 Postgress locally at this time. This means that I have to run bundle
@@ -190,13 +192,16 @@ re-prepared as well:</FONT></FONT></FONT></P>
 above <B>IS</B> necessary on my system...</FONT></FONT></FONT></P>
 <H1 CLASS="heading-2-western">Migrating the Production Database on
 Heroku</H1>
-<PRE CLASS="western" STYLE="margin-bottom: 0.2in; font-style: normal; font-weight: normal"><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2>heroku run rake db:migrate</FONT></FONT></FONT></PRE><P>
-<BR><BR>
-</P>
-<P>Writing to log 
-</P>
+<PRE CLASS="western" STYLE="margin-bottom: 0.2in"><FONT COLOR="#000080"><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>$</B></SPAN></FONT></FONT></FONT><FONT COLOR="#070707"> </FONT><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">git push heroku</SPAN></SPAN></FONT></FONT></FONT>
+<FONT COLOR="#000080"><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>$</B></SPAN></FONT></FONT></FONT><FONT COLOR="#070707"> </FONT><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">heroku run rake <A HREF="db:migrate">db:migrate</A></SPAN></SPAN></FONT></FONT></FONT>
+<FONT COLOR="#000080"><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>$</B></SPAN></FONT></FONT></FONT><FONT COLOR="#070707"> </FONT><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">heroku run pg:reset</SPAN></SPAN></FONT></FONT></FONT>
+<FONT COLOR="#000080"><FONT FACE="inherit"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>$</B></SPAN></FONT></FONT></FONT><FONT COLOR="#070707"> </FONT><FONT COLOR="#070707"><FONT FACE="monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">heroku run rake db:populate</SPAN></SPAN></FONT></FONT></FONT></PRE><H1 CLASS="heading-2-western">
+Writing to logs</H1>
 <P>Use: logger.debug “message”</P>
 <P>Note: if nothing gets written to the log – particularly if I
 have removed the log! – restart rails server!</P>
+<H1>Rails Routes</H1>
+<P>Good explaination of routes at:
+<A HREF="http://www.dreamincode.net/forums/topic/154561-rails-routes-explained-part-1/">http://www.dreamincode.net/forums/topic/154561-rails-routes-explained-part-1/</A></P>
 </BODY>
 </HTML>

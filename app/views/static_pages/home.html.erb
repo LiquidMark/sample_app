@@ -1,10 +1,37 @@
 <% provide(:title, 'Home') %>
 <% if signed_in? %>
+  <table class="front">
+    <tr>
+      <td class="main">
+        <h1 class="micropost">What's up?</h1>
+        <%= render 'shared/micropost_form' %>
+        <%= render 'shared/feed' %>        
+      </td>
+      <td class="sidebar round">
+        <%= render 'shared/user_info' %>
+        <%= render 'shared/stats' %>        
+      </td>
+    </tr>
+  </table>
+<% else %>
+  <h1>Liquid Autos</h1>
+  <p>
+      This is the home page for Liquid Autos Inc.
+  </p>
+  <%= link_to "Sign up now!", signup_path, class: "signup_button round" %>
+<% end %>
+
+<!-- OLD:
+<% provide(:title, 'Home') %>
+<% if signed_in? %>
   <div class="row">
     <aside class="span4">
       <section>
         <%= render 'shared/user_info' %>
       </section>
+      <section>
+        <%= render 'shared/stats' %>
+      </section>      
       <section>
         <%= render 'shared/micropost_form' %>
       </section>
@@ -24,3 +51,4 @@
                                 class: "btn btn-large btn-primary" %>
   </div>
 <% end %> 
+-->
